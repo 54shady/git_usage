@@ -53,3 +53,37 @@
 - 这里都是正文内容
 
 - 这里都是正文内容
+
+有如下文本
+
+```xml
+	<label abc def="ade">The is what we want</label>
+	<label abc def="ade">Why</label>
+	<label abc def="ade">Vim</label>
+	<label abc def="ade">Is</label>
+	<label abc def="ade">So</label>
+	<label abc def="ade">Great!</label>
+```
+
+在执行了下面命令后
+
+	:%s/^.*>\(.*\)<\/label>/\1/
+
+%s          全部范围
+
+^.*>        开头所有到>
+
+\(.*\)      所有都匹配
+
+<\/label>   匹配</label>
+
+\1          在这里是\(.*\)
+
+结果如下
+
+	The is what we want
+	Why
+	Vim
+	Is
+	So
+	Great!
