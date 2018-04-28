@@ -1,8 +1,12 @@
 # 一级标题
 
+<<<<<<< HEAD
 ![hv](./hv.bmp)
 
 aaaaaaaaa
+=======
+debug
+>>>>>>> 77ba6c6... oops, add debug
 [go to see test dir](./test)
 
 ## 二级标题
