@@ -1,10 +1,15 @@
 # 一级标题
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ![hv](./hv.bmp)
 
 aaaaaaaaa
 =======
+=======
+![hv](./hv.bmp)
+
+>>>>>>> 1842c83... show bmp file
 debug
 >>>>>>> 77ba6c6... oops, add debug
 [go to see test dir](./test)
