@@ -30,6 +30,25 @@
 
 	git push
 
+# repo 工作流程(以android源码为例)
+
+查看可切换的分支
+
+	cd .repo/manifests
+	git branch -a | cut -d / -f 3
+
+检出android-4.1.2_r1分支
+
+	repo init -b android-4.1.2_r1
+
+	repo sync (如果本地代码不是最新,可以手动再更新下)
+
+	repo start android-4.1.2_r1 --all
+
+查看当前的分支
+
+	repo branches
+
 # README
 
 ~~delete this line~~
