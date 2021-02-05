@@ -1,4 +1,36 @@
-# 这里是一级标题
+# Git 工作流程
+
+下载代码
+
+	git clone ...
+
+切换到本地开发分支
+
+	git checkout -b local
+	开发,添加commit,...(git add, git commit)
+
+将本地主分支同步到最新
+
+	git checkout master
+	git pull
+
+切换回本地开发分支,使用rebase同步主分支更新
+
+	git checkout local
+	git rebase master
+	手动解决冲突...
+	git rebase --continue
+
+切回主分支合并本地开发分支
+
+	git checkout master
+	git merge local
+
+将本地修改同步到远程仓库
+
+	git push
+
+# README
 
 ~~delete this line~~
 
