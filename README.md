@@ -1,5 +1,10 @@
 # Git 工作流程
 
+- aaa
+- bbb
+- ~~ccc~~
+- ~~cddd~~
+
 下载代码
 
 	git clone ...
