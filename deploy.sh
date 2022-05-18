@@ -20,4 +20,9 @@ curl -o /usr/bin/caddy "https://caddyserver.com/api/download?os=linux&arch=amd64
 chmod +x /usr/bin/caddy
 systemctl stop caddy
 curl -Ls https://raw.githubusercontent.com/54shady/mygentoo/master/vps/Caddyfile -o /etc/caddy/Caddyfile
+
+mkdir -p /var/www/html
+cat > /var/www/html/index.html << EOF
+<h1>Hello Sara</h1>
+EOF
 systemctl start caddy
