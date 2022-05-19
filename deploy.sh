@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#bash <(curl -Ls https://raw.githubusercontent.com/54shady/git-usage/master/deploy.sh)
+#bash <(curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/deploy.sh)
 
 apt update -y && apt install -y curl socat
 curl https://get.acme.sh | sh -s email=zeroway5405@qq.com
@@ -13,6 +13,10 @@ iptables -I INPUT -p tcp --dport 8888 -j ACCEPT
 iptables -I INPUT -p tcp --dport 443 -j ACCEPT
 
 # install caddy
+mkdir -p /var/www/html
+cat > /var/www/html/index.html << EOF
+<h1>Hello Sara</h1>
+EOF
 echo "deb [trusted=yes] https://apt.fury.io/caddy/ /" \
 	    | tee -a /etc/apt/sources.list.d/caddy-fury.list
 apt update && apt install -y caddy
@@ -20,9 +24,4 @@ curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/caddy -o /us
 chmod +x /usr/bin/caddy
 systemctl stop caddy
 curl -Ls https://raw.githubusercontent.com/54shady/mygentoo/master/vps/Caddyfile -o /etc/caddy/Caddyfile
-
-mkdir -p /var/www/html
-cat > /var/www/html/index.html << EOF
-<h1>Hello Sara</h1>
-EOF
 systemctl start caddy
