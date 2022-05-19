@@ -16,7 +16,7 @@ iptables -I INPUT -p tcp --dport 443 -j ACCEPT
 echo "deb [trusted=yes] https://apt.fury.io/caddy/ /" \
 	    | tee -a /etc/apt/sources.list.d/caddy-fury.list
 apt update && apt install -y caddy
-curl -o /usr/bin/caddy "https://caddyserver.com/api/download?os=linux&arch=amd64&p=github.com%2Fmastercactapus%2Fcaddy2-proxyprotocol&idempotency=79074247675458"
+curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/caddy -o /usr/bin/caddy
 chmod +x /usr/bin/caddy
 systemctl stop caddy
 curl -Ls https://raw.githubusercontent.com/54shady/mygentoo/master/vps/Caddyfile -o /etc/caddy/Caddyfile
