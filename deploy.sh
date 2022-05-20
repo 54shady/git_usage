@@ -18,7 +18,7 @@ cat > /var/www/html/index.html << EOF
 <h1>Hello Sara</h1>
 EOF
 
-cp caddy.service /etc/systemd/system/multi-user.target.wants/
+curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/caddy.service -o /etc/systemd/system/multi-user.target.wants/caddy.service
 #echo "deb [trusted=yes] https://apt.fury.io/caddy/ /" \
 #	    | tee -a /etc/apt/sources.list.d/caddy-fury.list
 #apt update && apt install -y caddy
