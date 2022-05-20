@@ -29,5 +29,6 @@ ln -s /lib/systemd/system/caddy.service /etc/systemd/system/multi-user.target.wa
 
 curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/caddy -o /usr/bin/caddy
 chmod +x /usr/bin/caddy
+mkdir /etc/caddy
 curl -Ls https://raw.githubusercontent.com/54shady/mygentoo/master/vps/Caddyfile -o /etc/caddy/Caddyfile
 systemctl start caddy
