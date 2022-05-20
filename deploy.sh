@@ -17,11 +17,14 @@ mkdir -p /var/www/html
 cat > /var/www/html/index.html << EOF
 <h1>Hello Sara</h1>
 EOF
-echo "deb [trusted=yes] https://apt.fury.io/caddy/ /" \
-	    | tee -a /etc/apt/sources.list.d/caddy-fury.list
-apt update && apt install -y caddy
+
+cp caddy.service /etc/systemd/system/multi-user.target.wants/
+#echo "deb [trusted=yes] https://apt.fury.io/caddy/ /" \
+#	    | tee -a /etc/apt/sources.list.d/caddy-fury.list
+#apt update && apt install -y caddy
+#systemctl stop caddy
+#rm -rf /usr/bin/caddy
 curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/caddy -o /usr/bin/caddy
 chmod +x /usr/bin/caddy
-systemctl stop caddy
 curl -Ls https://raw.githubusercontent.com/54shady/mygentoo/master/vps/Caddyfile -o /etc/caddy/Caddyfile
 systemctl start caddy
