@@ -14,6 +14,7 @@ mkdir -p /usr/local/bin
 # https://github.com/XTLS/Xray-core/releases/tag/v1.5.5
 DOWNLOAD_PATH="https://raw.githubusercontent.com/54shady/git_usage/master"
 curl -Ls $DOWNLOAD_PATH/xray -o /usr/local/bin/xray
+chmod +x /usr/local/bin/xray
 curl -Ls $DOWNLOAD_PATH/geoip.dat -o /usr/local/bin/geoip.dat
 curl -Ls $DOWNLOAD_PATH/geosite.dat -o /usr/local/bin/geosite.dat
 curl -Ls $DOWNLOAD_PATH/config.json -o /usr/local/bin/config.json
