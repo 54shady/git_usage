@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# this script work for debian 10
 #bash <(curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/deploy.sh)
 
 apt update -y && apt install -y curl socat
@@ -21,7 +22,9 @@ curl -Ls $DOWNLOAD_PATH/config.json -o /usr/local/bin/config.json
 curl -Ls $DOWNLOAD_PATH/trojan.json -o /usr/local/bin/trojan.json
 /usr/local/bin/xray -c /usr/local/bin/trojan.json &
 
-iptables -I INPUT -p tcp --dport 8888 -j ACCEPT
+# no need for 8888 port open
+#iptables -I INPUT -p tcp --dport 8888 -j ACCEPT
+
 iptables -I INPUT -p tcp --dport 443 -j ACCEPT
 
 # install caddy
