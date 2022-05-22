@@ -18,7 +18,8 @@ chmod +x /usr/local/bin/xray
 curl -Ls $DOWNLOAD_PATH/geoip.dat -o /usr/local/bin/geoip.dat
 curl -Ls $DOWNLOAD_PATH/geosite.dat -o /usr/local/bin/geosite.dat
 curl -Ls $DOWNLOAD_PATH/config.json -o /usr/local/bin/config.json
-/usr/local/bin/xray -c /usr/local/bin/config.json &
+curl -Ls $DOWNLOAD_PATH/trojan.json -o /usr/local/bin/trojan.json
+/usr/local/bin/xray -c /usr/local/bin/trojan.json &
 
 iptables -I INPUT -p tcp --dport 8888 -j ACCEPT
 iptables -I INPUT -p tcp --dport 443 -j ACCEPT
@@ -44,3 +45,8 @@ mkdir /etc/caddy
 MYGTVPS="https://raw.githubusercontent.com/54shady/mygentoo/master/vps"
 curl -Ls $MYGTVPS/Caddyfile -o /etc/caddy/Caddyfile
 /usr/bin/caddy run --environ --config /etc/caddy/Caddyfile &
+
+# add a auto start script
+curl -Ls $DOWNLOAD_PATH/rc.local -o /etc/rc.local
+chmod +x /etc/rc.local
+ln -s /lib/systemd/system/rc.local.service /etc/systemd/system/

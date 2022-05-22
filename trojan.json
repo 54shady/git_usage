@@ -1,0 +1,126 @@
+{
+	"log": null,
+	"routing": {
+		"rules": [
+			{
+				"inboundTag": [
+					"api"
+				],
+				"outboundTag": "api",
+				"type": "field"
+			},
+			{
+				"ip": [
+					"geoip:private"
+				],
+				"outboundTag": "blocked",
+				"type": "field"
+			},
+			{
+				"outboundTag": "blocked",
+				"protocol": [
+					"bittorrent"
+				],
+				"type": "field"
+			}
+		]
+	},
+	"dns": null,
+	"inbounds": [
+		{
+			"listen": "127.0.0.1",
+			"port": 62789,
+			"protocol": "dokodemo-door",
+			"settings": {
+				"address": "127.0.0.1"
+			},
+			"streamSettings": null,
+			"tag": "api",
+			"sniffing": null
+		},
+		{
+			"listen": null,
+			"port": 443,
+			"protocol": "trojan",
+			"settings": {
+				"clients": [
+					{
+						"password": "0",
+						"flow": ""
+					}
+				],
+				"fallbacks": [
+					{
+						"name": "",
+						"alpn": "",
+						"path": "",
+						"dest": "5001",
+						"xver": 1
+					},
+					{
+						"name": "vps.zeroway.xyz",
+						"alpn": "",
+						"path": "",
+						"dest": "5002",
+						"xver": 1
+					}
+				]
+			},
+			"streamSettings": {
+				"network": "tcp",
+				"security": "tls",
+				"tlsSettings": {
+					"serverName": "vps.zeroway.xyz",
+					"certificates": [
+						{
+							"certificateFile": "/root/cert.crt",
+							"keyFile": "/root/private.key"
+						}
+					]
+				},
+				"tcpSettings": {
+					"header": {
+						"type": "none"
+					}
+				}
+			},
+			"tag": "inbound-443",
+			"sniffing": {
+				"enabled": true,
+				"destOverride": [
+					"http",
+					"tls"
+				]
+			}
+		}
+	],
+	"outbounds": [
+		{
+			"protocol": "freedom",
+			"settings": {}
+		},
+		{
+			"protocol": "blackhole",
+			"settings": {},
+			"tag": "blocked"
+		}
+	],
+	"transport": null,
+	"policy": {
+		"system": {
+			"statsInboundDownlink": true,
+			"statsInboundUplink": true
+		}
+	},
+	"api": {
+		"services": [
+			"HandlerService",
+			"LoggerService",
+			"StatsService"
+		],
+		"tag": "api"
+	},
+	"stats": {},
+	"reverse": null,
+	"fakeDns": null
+}
