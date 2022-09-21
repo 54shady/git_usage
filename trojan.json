@@ -58,7 +58,7 @@
 						"xver": 1
 					},
 					{
-						"name": "vps.zeroway.xyz",
+						"name": "vps.yieyu.xyz",
 						"alpn": "",
 						"path": "",
 						"dest": "5002",
@@ -70,7 +70,7 @@
 				"network": "tcp",
 				"security": "tls",
 				"tlsSettings": {
-					"serverName": "vps.zeroway.xyz",
+					"serverName": "vps.yieyu.xyz",
 					"certificates": [
 						{
 							"certificateFile": "/root/cert.crt",
