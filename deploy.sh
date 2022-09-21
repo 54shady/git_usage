@@ -1,12 +1,14 @@
 #!/usr/bin/env bash
 
 # this script work for debian 10
-#bash <(curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/deploy.sh)
+#bash <(curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/deploy.sh vps.name.com)
 
 apt update -y && apt install -y curl socat
 curl https://get.acme.sh | sh -s email=zeroway5405@qq.com
 iptables -I INPUT -p tcp --dport 80 -j ACCEPT
-MDN="vps.zeroway.xyz"
+
+# My DND Name: for example vps.name.xyz
+MDN="$1"
 ~/.acme.sh/acme.sh --issue -d $MDN --standalone
 ~/.acme.sh/acme.sh --installcert -d $MDN --key-file /root/private.key --fullchain-file /root/cert.crt
 #bash <(curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/install.sh)
