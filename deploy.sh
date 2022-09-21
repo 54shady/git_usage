@@ -47,7 +47,7 @@ EOF
 curl -Ls $DOWNLOAD_PATH/caddy -o /usr/bin/caddy
 chmod +x /usr/bin/caddy
 mkdir /etc/caddy
-MYGTVPS="https://raw.githubusercontent.com/54shady/mygentoo/master/vps"
+MYGTVPS="https://raw.githubusercontent.com/54shady/git_usage/master"
 curl -Ls $MYGTVPS/Caddyfile -o /etc/caddy/Caddyfile
 /usr/bin/caddy run --environ --config /etc/caddy/Caddyfile &
 
