@@ -24,7 +24,7 @@
 	bind 127.0.0.1
 }
 
-http://vps.yieyu.xyz:5002 {
+http://abc.yieyu.xyz:5002 {
 	root * /var/www/html
 	file_server
 	log

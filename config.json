@@ -59,7 +59,7 @@
 		    "xver": 1
 		  },
 		  {
-		    "name": "vps.yieyu.xyz",
+		    "name": "abc.yieyu.xyz",
 		    "alpn": "",
 		    "path": "",
 		    "dest": "5002",
@@ -75,7 +75,7 @@
                 "network": "tcp",
                 "security": "xtls",
                 "xtlsSettings": {
-          "serverName": "vps.yieyu.xyz",
+          "serverName": "abc.yieyu.xyz",
                     "certificates": [
                         {
                             "certificateFile": "/root/cert.crt",
