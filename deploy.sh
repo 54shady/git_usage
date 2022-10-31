@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # this script work for debian 10
-#bash <(curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/deploy.sh) psv.yieyu.xyz
+#bash <(curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/deploy.sh) vps.yieyu.xyz
 
 apt update -y && apt install -y curl socat
 curl https://get.acme.sh | sh -s email=zeroway5405@qq.com
