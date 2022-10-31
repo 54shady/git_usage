@@ -9,7 +9,7 @@ iptables -I INPUT -p tcp --dport 80 -j ACCEPT
 
 # My DND Name: for example vps.yieyu.xyz
 MDN="$1"
-~/.acme.sh/acme.sh --issue -d $MDN --standalone --server LetsEncrypt.org
+~/.acme.sh/acme.sh --force --issue -d $MDN --standalone --server LetsEncrypt.org
 ~/.acme.sh/acme.sh --installcert -d $MDN --key-file /root/private.key --fullchain-file /root/cert.crt
 #bash <(curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/install.sh)
 mkdir -p /usr/local/bin
