@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # this script work for debian 10
-#bash <(curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/deploy.sh) vps.yieyu.xyz
+#bash <(curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/deploy.sh) psv.yieyu.xyz
 
 apt update -y && apt install -y curl socat
 curl https://get.acme.sh | sh -s email=zeroway5405@qq.com
@@ -9,7 +9,7 @@ iptables -I INPUT -p tcp --dport 80 -j ACCEPT
 
 # My DND Name: for example vps.yieyu.xyz
 MDN="$1"
-~/.acme.sh/acme.sh --issue -d $MDN --standalone
+~/.acme.sh/acme.sh --issue -d $MDN --standalone --server LetsEncrypt.org
 ~/.acme.sh/acme.sh --installcert -d $MDN --key-file /root/private.key --fullchain-file /root/cert.crt
 #bash <(curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/install.sh)
 mkdir -p /usr/local/bin
