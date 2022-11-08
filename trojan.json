@@ -58,7 +58,7 @@
 						"xver": 1
 					},
 					{
-						"name": "abc.yieyu.xyz",
+						"name": "www.stub.com",
 						"alpn": "",
 						"path": "",
 						"dest": "5002",
@@ -70,7 +70,7 @@
 				"network": "tcp",
 				"security": "tls",
 				"tlsSettings": {
-					"serverName": "abc.yieyu.xyz",
+					"serverName": "www.stub.com",
 					"certificates": [
 						{
 							"certificateFile": "/root/cert.crt",

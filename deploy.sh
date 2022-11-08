@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 # this script work for debian 10
-#bash <(curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/deploy.sh) abc.yieyu.xyz
+#bash <(curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/deploy.sh) www.new.com
 
 # Basic setup
 apt update -y && apt install -y curl socat
-curl https://get.acme.sh | sh -s email=zeroway5405@qq.com
+curl https://get.acme.sh | sh -s email=fakename@mail.com
 
 # Ports Configuration
 iptables -I INPUT -p tcp --dport 80 -j ACCEPT
@@ -27,6 +27,11 @@ curl -Ls $SCRIPT_REPO/geoip.dat -o /usr/local/bin/geoip.dat
 curl -Ls $SCRIPT_REPO/geosite.dat -o /usr/local/bin/geosite.dat
 curl -Ls $SCRIPT_REPO/config.json -o /usr/local/bin/config.json
 curl -Ls $SCRIPT_REPO/trojan.json -o /usr/local/bin/trojan.json
+
+# Do rename stub domain name to new assign name
+sed -i "s/www.stub.com/$DOMAINAME/" /usr/local/bin/trojan.json
+
+# Run the xray
 /usr/local/bin/xray -c /usr/local/bin/trojan.json &
 
 # Caddy Setup
@@ -48,6 +53,7 @@ curl -Ls $SCRIPT_REPO/caddy -o /usr/bin/caddy
 chmod +x /usr/bin/caddy
 mkdir /etc/caddy
 curl -Ls $SCRIPT_REPO/Caddyfile -o /etc/caddy/Caddyfile
+sed -i "s/www.stub.com/$DOMAINAME/" /etc/caddy/Caddyfile
 /usr/bin/caddy run --environ --config /etc/caddy/Caddyfile &
 
 # add a auto start script
