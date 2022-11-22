@@ -1,0 +1,11 @@
+4c8022753bf2f640b3954dd9f4f139eaa33ca
+
+
+apt update -y && apt install -y curl socat
+bash <(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)
+
+#port for x-ui 8989
+iptables -I INPUT -p tcp --dport 8989 -j ACCEPT
+
+# port for ssl
+iptables -I INPUT -p tcp --dport 443 -j ACCEPT
