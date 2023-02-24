@@ -4,6 +4,8 @@ set -x
 # this script work for debian 10
 #bash <(curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/deploy.sh) gpt.yieyu.xyz
 
+cd /root/
+
 # Basic setup
 apt update -y && apt install -y curl socat
 curl https://get.acme.sh | sh -s email=fakename@mail.com
