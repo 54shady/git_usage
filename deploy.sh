@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -x
 
 # this script work for debian 10
 #bash <(curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/deploy.sh) gpt.yieyu.xyz

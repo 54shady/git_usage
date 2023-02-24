@@ -33,7 +33,8 @@ curl "https://api.vultr.com/v2/instances" \
 
 
 # list startup script
-# curl "https://api.vultr.com/v2/startup-scripts"  -X GET  -H "Authorization: Bearer ${VULTR_API_KEY}"
+#curl "https://api.vultr.com/v2/startup-scripts" \
+#	-X GET  -H "Authorization: Bearer ${VULTR_API_KEY}"
 
 
 #curl "https://api.vultr.com/v2/startup-scripts/{startup-id}" -X GET -H "Authorization: Bearer ${VULTR_API_KEY}"
