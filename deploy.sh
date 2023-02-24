@@ -13,6 +13,8 @@ iptables -I INPUT -p tcp --dport 80 -j ACCEPT
 # what if you wanna change port to something else
 # for example, 1443, change the iptables config and
 # trojan.json file
+#sed -i 's/443/1444/g' /usr/local/bin/trojan.json
+#iptables -I INPUT -p tcp --dport 1444 -j ACCEPT
 iptables -I INPUT -p tcp --dport 443 -j ACCEPT
 
 # Fetch my domain name form first argument

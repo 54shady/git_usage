@@ -11,7 +11,7 @@ curl "https://api.vultr.com/v2/instances" \
     "os_id" : 477,
     "backups" : "disabled",
     "hostname": "gptvpn",
-	"sshkey_id":["c3096c8a-9a34-47b6-8a4b-10e5567c2259"],
+	"sshkey_id":["c3096c8a-9a34-47b6-8a4b-10e5567c2259","8d5001c4-eabe-40f0-9dcb-577deadb56c7"],
 	"script_id": "35887d27-d58a-47a8-9176-57bf5a951706",
     "tags": [
       "a tag",
@@ -27,7 +27,7 @@ curl "https://api.vultr.com/v2/instances" \
 #curl "https://api.vultr.com/v2/instances" -X GET   -H "Authorization: Bearer ${VULTR_API_KEY}"
 
 # delete instance
-#curl "https://api.vultr.com/v2/instances/f6e6a1b8-1cba-4082-a6b0-cc6153e0683a" \
+#curl "https://api.vultr.com/v2/instances/4820a6d4-ea00-4855-913c-1c3b76fff013" \
 #	  -X DELETE \
 #	-H "Authorization: Bearer ${VULTR_API_KEY}"
 
