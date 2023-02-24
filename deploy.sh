@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # this script work for debian 10
-#bash <(curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/deploy.sh) www.new.com
+#bash <(curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/deploy.sh) gpt.yieyu.xyz
 
 # Basic setup
 apt update -y && apt install -y curl socat
@@ -9,6 +9,9 @@ curl https://get.acme.sh | sh -s email=fakename@mail.com
 
 # Ports Configuration
 iptables -I INPUT -p tcp --dport 80 -j ACCEPT
+# what if you wanna change port to something else
+# for example, 1443, change the iptables config and
+# trojan.json file
 iptables -I INPUT -p tcp --dport 443 -j ACCEPT
 
 # Fetch my domain name form first argument
