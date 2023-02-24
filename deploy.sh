@@ -4,8 +4,6 @@ set -x
 # this script work for debian 10
 #bash <(curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/deploy.sh) gpt.yieyu.xyz
 
-cd /root/
-
 # Basic setup
 apt update -y && apt install -y curl socat
 curl https://get.acme.sh | sh -s email=fakename@mail.com
@@ -19,8 +17,14 @@ iptables -I INPUT -p tcp --dport 443 -j ACCEPT
 
 # Fetch my domain name form first argument
 DOMAINAME="$1"
-~/.acme.sh/acme.sh --force --issue -d $DOMAINAME --standalone --server LetsEncrypt.org
-~/.acme.sh/acme.sh --installcert -d $DOMAINAME --key-file /root/private.key --fullchain-file /root/cert.crt
+if [ -d '/root/.acme.sh' ]
+then
+	~/.acme.sh/acme.sh --force --issue -d $DOMAINAME --standalone --server LetsEncrypt.org
+	~/.acme.sh/acme.sh --installcert -d $DOMAINAME --key-file /root/private.key --fullchain-file /root/cert.crt
+else
+	/.acme.sh/acme.sh --force --issue -d $DOMAINAME --standalone --server LetsEncrypt.org
+	/.acme.sh/acme.sh --installcert -d $DOMAINAME --key-file /root/private.key --fullchain-file /root/cert.crt
+fi
 
 #bash <(curl -Ls https://raw.githubusercontent.com/54shady/git_usage/master/install.sh)
 mkdir -p /usr/local/bin
