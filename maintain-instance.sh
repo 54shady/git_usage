@@ -1,4 +1,4 @@
-export VULTR_API_KEY='CF4BWYKTTEDOJHIEFCAQJB57VCWJPZWRXCEA'
+export VULTR_API_KEY=''
 
 function create_instance()
 {

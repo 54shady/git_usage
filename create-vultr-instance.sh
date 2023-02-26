@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-export VULTR_API_KEY='CF4BWYKTTEDOJHIEFCAQJB57VCWJPZWRXCEA'
+export VULTR_API_KEY=''
 curl "https://api.vultr.com/v2/instances" \
   -X POST \
   -H "Authorization: Bearer ${VULTR_API_KEY}" \
