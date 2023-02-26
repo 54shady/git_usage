@@ -24,7 +24,8 @@ then
 	~/.acme.sh/acme.sh --force --issue -d $DOMAINAME --standalone --server LetsEncrypt.org
 	~/.acme.sh/acme.sh --installcert -d $DOMAINAME --key-file /root/private.key --fullchain-file /root/cert.crt
 else
-	/.acme.sh/acme.sh --force --issue -d $DOMAINAME --standalone --server LetsEncrypt.org
+	# do not specify the ca server for multiple ca require
+	/.acme.sh/acme.sh --force --issue -d $DOMAINAME --standalone
 	/.acme.sh/acme.sh --installcert -d $DOMAINAME --key-file /root/private.key --fullchain-file /root/cert.crt
 fi
 
@@ -40,8 +41,8 @@ curl -Ls $SCRIPT_REPO/geosite.dat -o /usr/local/bin/geosite.dat
 curl -Ls $SCRIPT_REPO/config.json -o /usr/local/bin/config.json
 curl -Ls $SCRIPT_REPO/trojan.json -o /usr/local/bin/trojan.json
 # config port 1444
-#sed -i 's/443/1444/g' /usr/local/bin/trojan.json
-#iptables -I INPUT -p tcp --dport 1444 -j ACCEPT
+sed -i 's/443/1444/g' /usr/local/bin/trojan.json
+iptables -I INPUT -p tcp --dport 1444 -j ACCEPT
 
 # Do rename stub domain name to new assign name
 sed -i "s/www.stub.com/$DOMAINAME/" /usr/local/bin/trojan.json
