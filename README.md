@@ -5,6 +5,10 @@
 - ~~ccc~~
 - ~~cddd~~
 
+同步所有远程的分支信息到本地
+
+	git remote update origin --prune
+
 下载代码
 
 	git clone ...
